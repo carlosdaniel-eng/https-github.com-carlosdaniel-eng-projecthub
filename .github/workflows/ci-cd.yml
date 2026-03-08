@@ -104,7 +104,8 @@ jobs:
       - name: Run front-end tests
         run: npm run test -- --run
 
-      - name: Deploy to Vercel
+      - - name: Deploy to Vercel
+        working-directory: ./
         run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
