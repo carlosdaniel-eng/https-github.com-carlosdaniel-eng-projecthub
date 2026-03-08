@@ -112,8 +112,8 @@ O **ProjectHub** é uma aplicação web SaaS para gerenciamento de projetos e ta
 
 ## Funcionalidades
 
-- **Autenticação completa** — Registro, login, refresh token JWT, proteção de rotas
-- **Perfis de acesso** — Admin e Usuário com permissões distintas
+- **Autenticação completa** — Registro, login, refresh token JWT, proteção de rotas.
+- **Perfis de acesso** — Admin e Usuário com permissões distintas.
 - **CRUD de Projetos** — Criação, listagem, edição, remoção, controle de status
 - **Gerenciamento de Membros** — Adicionar/remover membros com papel (dono, membro, visitante)
 - **Kanban Board** — Tarefas organizadas em "A Fazer / Em Progresso / Concluído"
