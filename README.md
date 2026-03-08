@@ -24,7 +24,7 @@
 - [Testes](#testes)
 - [Deploy em Nuvem](#deploy-em-nuvem)
 - [Documentação da API](#documentação-da-api)
-- [Estrutura do Repositório](#estrutura-do-repositório)
+- [Estrutura do Repositório](#estrutura-do-repositório).
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Equipe](#equipe)
 
