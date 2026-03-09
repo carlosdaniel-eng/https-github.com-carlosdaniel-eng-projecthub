@@ -2,8 +2,8 @@
 
 > Plataforma de gerenciamento de projetos em nuvem — desenvolvida como Atividade Final da disciplina **Desenvolvimento de Software em Nuvem** (ADS/IA EAD — UNIFOR).
 
-[![CI/CD](https://github.com/carlosdanielalves/projecthub/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/carlosdanielalves/projecthub/actions)
-[![Coverage](https://img.shields.io/badge/coverage-%E2%89%A570%25-22c55e)](https://github.com/carlosdanielalves/projecthub)
+[![CI/CD](https://github.com/carlosdaniel-eng/projecthub/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/carlosdaniel-eng/projecthub/actions)
+[![Coverage](https://img.shields.io/badge/coverage-%E2%89%A570%25-22c55e)](https://github.com/carlosdaniel-eng/projecthub)
 [![Python](https://img.shields.io/badge/Python-3.11-3b82f6?logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev)
@@ -24,7 +24,7 @@
 - [Testes](#testes)
 - [Deploy em Nuvem](#deploy-em-nuvem)
 - [Documentação da API](#documentação-da-api)
-- [Estrutura do Repositório](#estrutura-do-repositório).
+- [Estrutura do Repositório](#estrutura-do-repositório)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Equipe](#equipe)
 
@@ -38,9 +38,9 @@ O **ProjectHub** é uma aplicação web SaaS para gerenciamento de projetos e ta
 
 | Serviço | URL |
 |---------|-----|
-| 🌐 Front-end (Vercel) | `https://projecthub.vercel.app` |
-| ⚙️ API Back-end (Render) | `https://projecthub-api.onrender.com` |
-| 📖 Swagger Docs | `https://projecthub-api.onrender.com/docs` |
+| 🌐 Front-end (Vercel) | `https://https-github-com-carlosdaniel-eng-p.vercel.app` |
+| ⚙️ API Back-end (Render) | `https://projecthub-api-8fty.onrender.com` |
+| 📖 Swagger Docs | `https://projecthub-api-8fty.onrender.com/docs` |
 
 ---
 
@@ -112,8 +112,8 @@ O **ProjectHub** é uma aplicação web SaaS para gerenciamento de projetos e ta
 
 ## Funcionalidades
 
-- **Autenticação completa** — Registro, login, refresh token JWT, proteção de rotas.
-- **Perfis de acesso** — Admin e Usuário com permissões distintas.
+- **Autenticação completa** — Registro, login, refresh token JWT, proteção de rotas
+- **Perfis de acesso** — Admin e Usuário com permissões distintas
 - **CRUD de Projetos** — Criação, listagem, edição, remoção, controle de status
 - **Gerenciamento de Membros** — Adicionar/remover membros com papel (dono, membro, visitante)
 - **Kanban Board** — Tarefas organizadas em "A Fazer / Em Progresso / Concluído"
@@ -141,7 +141,7 @@ O **ProjectHub** é uma aplicação web SaaS para gerenciamento de projetos e ta
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/carlosdanielalves/projecthub.git
+git clone https://github.com/carlosdaniel-eng/projecthub.git
 cd projecthub
 ```
 
@@ -220,7 +220,7 @@ REDIS_URL=rediss://default:TOKEN@host.upstash.io:6379
 GITHUB_TOKEN=ghp_SEU_TOKEN
 
 # CORS — origens permitidas (separadas por vírgula)
-ALLOWED_ORIGINS=https://seu-app.vercel.app,http://localhost:5173
+ALLOWED_ORIGINS=https://https-github-com-carlosdaniel-eng-p.vercel.app,http://localhost:5173
 ```
 
 ### Front-end (`frontend/.env.local`)
