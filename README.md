@@ -557,5 +557,5 @@ Push em qualquer branch
 ---
 
 <div align="center">
-  <sub>Desenvolvido por Carlos Daniel Albino Alves — UNIFOR 2025</sub>
+  <sub>Desenvolvido por Carlos Daniel Albino Alves — UNIFOR 2026</sub>
 </div>
