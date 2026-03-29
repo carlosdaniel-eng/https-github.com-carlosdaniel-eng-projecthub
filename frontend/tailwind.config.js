@@ -8,12 +8,13 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       colors: {
+        // These now use CSS variables — dark/light themes switch automatically
         surface: {
-          0: '#0a0c10',
-          1: '#0f1117',
-          2: '#161b25',
-          3: '#1e2535',
-          4: '#252e42',
+          0: 'var(--surface-0)',
+          1: 'var(--surface-1)',
+          2: 'var(--surface-2)',
+          3: 'var(--surface-3)',
+          4: 'var(--surface-4)',
         },
         brand: {
           DEFAULT: '#3b82f6',
@@ -22,13 +23,13 @@ export default {
           glow: 'rgba(59,130,246,0.15)',
         },
         border: {
-          DEFAULT: 'rgba(255,255,255,0.06)',
-          strong: 'rgba(255,255,255,0.12)',
+          DEFAULT: 'var(--border)',
+          strong: 'var(--border-strong)',
         },
         text: {
-          primary: '#f0f4ff',
-          secondary: '#8b9ab8',
-          muted: '#4d5a74',
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
         },
         status: {
           todo: '#64748b',
@@ -50,14 +51,7 @@ export default {
         'glow-sm': '0 0 10px rgba(59,130,246,0.15)',
       },
       backgroundImage: {
-        'grid-pattern': `
-          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-        `,
         'brand-gradient': 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)',
-      },
-      backgroundSize: {
-        grid: '32px 32px',
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease forwards',
