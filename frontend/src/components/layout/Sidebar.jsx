@@ -21,8 +21,7 @@ function ProfileModal({ user, onClose, onSave }) {
   const handleSave = async () => {
     if (!name.trim()) return
     setSaving(true)
-    // Salva localmente (atualiza localStorage e contexto)
-    await new Promise((r) => setTimeout(r, 600)) // simula delay
+    await new Promise((r) => setTimeout(r, 600))
     onSave(name.trim())
     setSaving(false)
     onClose()
@@ -33,22 +32,28 @@ function ProfileModal({ user, onClose, onSave }) {
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
+      {/* Fundo escuro */}
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in" />
-      <div className="relative w-full max-w-sm animate-slide-up"
+
+      {/* Modal — z-10 garante que fica na frente do fundo */}
+      <div
+        className="relative z-10 w-full max-w-sm animate-slide-up rounded-2xl shadow-2xl"
         style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}
-        className="rounded-2xl shadow-2xl"
       >
-        <div className="flex items-center justify-between px-6 py-4"
-          style={{ borderBottom: '1px solid var(--border)' }}>
-          <h2 className="font-semibold" style={{ color: 'var(--text-primary)' }}>Editar Perfil</h2>
-          <button
-            onClick={onClose}
-            className="btn-icon"
-          >
+        {/* Cabeçalho */}
+        <div
+          className="flex items-center justify-between px-6 py-4"
+          style={{ borderBottom: '1px solid var(--border)' }}
+        >
+          <h2 className="font-semibold" style={{ color: 'var(--text-primary)' }}>
+            Editar Perfil
+          </h2>
+          <button onClick={onClose} className="btn-icon">
             <X size={16} />
           </button>
         </div>
 
+        {/* Conteúdo */}
         <div className="px-6 py-5 flex flex-col gap-4">
           {/* Avatar */}
           <div className="flex justify-center">
@@ -57,10 +62,12 @@ function ProfileModal({ user, onClose, onSave }) {
             </div>
           </div>
 
-          {/* Name input */}
+          {/* Nome */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-medium uppercase tracking-wider"
-              style={{ color: 'var(--text-secondary)' }}>
+            <label
+              className="text-xs font-medium uppercase tracking-wider"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               Nome
             </label>
             <input
@@ -72,10 +79,12 @@ function ProfileModal({ user, onClose, onSave }) {
             />
           </div>
 
-          {/* Email (somente leitura) */}
+          {/* E-mail (somente leitura) */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-medium uppercase tracking-wider"
-              style={{ color: 'var(--text-secondary)' }}>
+            <label
+              className="text-xs font-medium uppercase tracking-wider"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               E-mail
             </label>
             <input
@@ -89,6 +98,7 @@ function ProfileModal({ user, onClose, onSave }) {
             </p>
           </div>
 
+          {/* Botões */}
           <div className="flex gap-3 pt-1">
             <button
               className="btn btn-ghost flex-1 justify-center"
@@ -119,7 +129,6 @@ export default function Sidebar() {
   const handleLogout = () => { logout(); navigate('/login') }
 
   const handleSaveName = (newName) => {
-    // Atualiza o nome no localStorage e no contexto
     const updated = { ...user, name: newName }
     localStorage.setItem('user', JSON.stringify(updated))
     if (updateUser) updateUser(updated)
@@ -136,8 +145,10 @@ export default function Sidebar() {
         }}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2.5 px-5 py-5"
-          style={{ borderBottom: '1px solid var(--border)' }}>
+        <div
+          className="flex items-center gap-2.5 px-5 py-5"
+          style={{ borderBottom: '1px solid var(--border)' }}
+        >
           <div className="w-7 h-7 rounded-lg bg-brand flex items-center justify-center shadow-glow-sm">
             <Hexagon size={15} className="text-white" fill="currentColor" />
           </div>
@@ -155,33 +166,46 @@ export default function Sidebar() {
               className={({ isActive }) =>
                 clsx(
                   'flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150',
-                  isActive
-                    ? 'bg-brand/15 text-brand border border-brand/20'
-                    : 'hover:bg-[var(--surface-3)]'
+                  isActive ? 'bg-brand/15 text-brand border border-brand/20' : ''
                 )
               }
               style={({ isActive }) => ({
                 color: isActive ? undefined : 'var(--text-secondary)',
               })}
+              onMouseEnter={(e) => {
+                if (!e.currentTarget.classList.contains('text-brand')) {
+                  e.currentTarget.style.background = 'var(--surface-3)'
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!e.currentTarget.classList.contains('text-brand')) {
+                  e.currentTarget.style.background = 'transparent'
+                }
+              }}
             >
               <Icon size={16} />
               {label}
             </NavLink>
           ))}
 
-          {/* Botão Tema Claro/Escuro */}
+          {/* Botão Tema */}
           <button
             onClick={toggle}
-            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 mt-2 hover:bg-[var(--surface-3)]"
+            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 mt-2"
             style={{ color: 'var(--text-secondary)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--surface-3)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
             title={isDark ? 'Ativar modo claro' : 'Ativar modo escuro'}
           >
-            {isDark ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} className="text-brand" />}
+            {isDark
+              ? <Sun size={16} className="text-amber-400" />
+              : <Moon size={16} className="text-brand" />
+            }
             {isDark ? 'Modo Claro' : 'Modo Escuro'}
           </button>
         </nav>
 
-        {/* User card */}
+        {/* Usuário */}
         <div className="px-3 py-4" style={{ borderTop: '1px solid var(--border)' }}>
           <div
             className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg"
@@ -199,7 +223,6 @@ export default function Sidebar() {
               </div>
             </div>
             <div className="flex items-center gap-0.5">
-              {/* Editar perfil */}
               <button
                 onClick={() => setShowProfile(true)}
                 className="btn-icon w-6 h-6"
@@ -207,7 +230,6 @@ export default function Sidebar() {
               >
                 <Pencil size={12} />
               </button>
-              {/* Logout */}
               <button
                 onClick={handleLogout}
                 className="btn-icon w-6 h-6 hover:text-red-400"
