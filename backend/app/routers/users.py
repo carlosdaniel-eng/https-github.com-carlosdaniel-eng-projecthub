@@ -15,7 +15,7 @@ def list_users(
     """Retorna todos os usuários cadastrados (exceto o próprio usuário logado)."""
     users = db.query(User).filter(
         User.id != current_user.id,
-        User.is_active == True
+        User.is_active.is_(True),
     ).order_by(User.name).all()
 
     return [
