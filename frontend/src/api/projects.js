@@ -11,3 +11,7 @@ export const projectsApi = {
   commits: (id) => api.get(`/projects/${id}/github`).then((r) => r.data),
   activity: (id) => api.get(`/projects/${id}/activity`).then((r) => r.data),
 }
+
+export const usersApi = {
+  list: () => api.get('/users/').then((r) => r.data),
+}
